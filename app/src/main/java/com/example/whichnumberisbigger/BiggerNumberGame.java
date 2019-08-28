@@ -6,10 +6,12 @@ public class BiggerNumberGame {
     private int score;
     private int lowerLimit;
     private int upperLimit;
+    private int correct;
 
     public BiggerNumberGame(int lowerLimit, int upperLimit) {
         this.lowerLimit = lowerLimit;
         this.upperLimit = upperLimit;
+        generateRandomNumbers();
     }
 
     public void generateRandomNumbers()
@@ -32,12 +34,17 @@ public class BiggerNumberGame {
         int bigNumber = Math.max(number1,number2);
         if (answer == bigNumber)
         {
+            correct = 1;
             score++;
             return "YOU'RE CORRECT!";
+
         }
+        correct = 2;
+        score--;
         return "YOU'RE WRONG!!!!";
 
     }
+    public int getCorrect() {return correct;}
 
 
     public int getNumber1() {
